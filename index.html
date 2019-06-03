@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body style="background-image:url('bg.jpg'); background-size: cover; position: absolute;">
+	<h1 class="ml-5">Счет:
+		<span class="score innerHTML">0</span>
+	</h1>
+	<h1 class="ml-5">Муравьи:
+		<span class="gross innerHTML">0</span>
+	</h1>
+<script type="text/javascript">
+	let score = 0;
+	let gross = 0;
+	let timer = function(){
+		let math = Math.random()*1000;
+		let math2 = Math.random()*1000;
+		let elem = document.createElement('img');
+		document.body.appendChild(elem);
+		elem.src = "img.svg"
+		gross = gross+1
+		document.querySelector(".gross").innerHTML = gross;
+		elem.style.width = "130px"
+		elem.style.height = "130px"
+		elem.style.position = "absolute"
+		elem.style.marginLeft = math+"px"
+		elem.style.marginTop = math2+"px"
+		elem.onclick = function(){
+			score = score+1
+			elem.style.display = "none"
+			document.querySelector(".score").innerHTML = score;
+		}
+	}
+	setInterval(timer,1500)
+	let y = function(){
+		if (score ==gross){
+			alert("Вы выиграли")
+		}
+		else{
+			alert("Вы проиграли")
+		}
+	}
+	setTimeout(y,10000)
+</script>
+</body>
+</html>
